@@ -1,5 +1,8 @@
-# kinda-contribute
-Action that helps to be an active contributor without doing anything.
+# Contribute. Kinda...
+
+Action that helps to appear actively contributing without doing anything.
+
+![headline.png](headline.png)
 
 # Usage
 
