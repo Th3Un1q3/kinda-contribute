@@ -11,10 +11,9 @@ on:
   schedule:
     # Desired contribution schedule
     # [More about scheduled running](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
-    - cron: '0 0 * * 1-5'
+    - cron: '0 15 * * 1-5' # At 15:00 on every day-of-week from Monday through Friday.
 
 jobs:
-  runs-on: ubuntu-latest
   run:
     name: Populate Contributions
     runs-on: ubuntu-latest

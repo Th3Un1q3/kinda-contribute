@@ -5,23 +5,22 @@ on:
     - cron: '0 0 * * 1-5'
 
 jobs:
-    runs-on: ubuntu-latest
     run:
-        name: Populate Contributions
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v3
-            with:
-              # Target Branch to commit to
-              ref: usage
-              # It's required to use your personal access token
-              # in order to make it look like it's your activity.
-              # The token must be enabled for the private repo scopes.
-              # [Action Docs](https://github.com/actions/checkout#usage)
-              token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      name: Populate Contributions
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v3
+          with:
+            # Target Branch to commit to
+            ref: usage
+            # It's required to use your personal access token
+            # in order to make it look like it's your activity.
+            # The token must be enabled for the private repo scopes.
+            # [Action Docs](https://github.com/actions/checkout#usage)
+            token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
-          - uses: 'Th3Un1q3/kinda-contribute@main'
-            with:
-                  # Defines range from 1 to 10(in this case) of commits to make
-                  max-commits: 10
+        - uses: 'Th3Un1q3/kinda-contribute@main'
+          with:
+                # Defines range from 1 to 10(in this case) of commits to make
+                max-commits: 10
 
