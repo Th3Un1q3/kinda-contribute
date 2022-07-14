@@ -7,9 +7,9 @@ do
     esac
 done
 
-for value in $(seq 1 $commits);
+for value in $(seq 1 $commits)
 do
-
   echo "Change at $value" >> changes.txt
-  git commmit -am "Activity $(date)"
+  git add changes.txt
+  git commit -m "Activity $(date) $value"
 done
