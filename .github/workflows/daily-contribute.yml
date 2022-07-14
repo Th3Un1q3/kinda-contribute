@@ -18,8 +18,10 @@ jobs:
         with:
           # It's required to use your personal access token
           # in order to make it look like it's your activity.
+          # The token must be enabled for the private repo scopes.
+          # [Action Docs](https://github.com/actions/checkout#usage)
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-      - uses: 'Th3Un1q3/kinda-contribute@0.0.1.canary'
+      - uses: 'Th3Un1q3/kinda-contribute@main'
         with:
           max-commits: ${{ inputs.max-commits }}
           exact-commits: ${{ inputs.exact-commits }}
