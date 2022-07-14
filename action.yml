@@ -2,13 +2,44 @@ name: 'Kinda Contribute'
 description: 'Simulates your contribution'
 author: 'Th3Un1q3'
 inputs:
-  commits:
+  max-commits:
     description: 'How many commits to make per run'
     required: false
     default: '5'
+  exact-commits:
+    description: 'How many commits to make per run'
+    required: false
 
 runs:
   using: "composite"
   steps:
-    - run: echo You want to simulate ${{ inputs.commits }} commits.
+    - run: |
+        echo ${{ toJson(github) }}
       shell: bash
+      name: 'Display GitHub context'
+    - uses: actions/github-script@v6
+      id: define-commits-to-make
+      with:
+        script: |
+            try {
+              const exactCommits = Number.parseInt('${{ inputs.exact-commits }}');
+              const maxCommits = Number.parseInt('${{ inputs.max-commits }}');
+              const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
+              return {
+                commitsNumber,
+              }
+            } catch(error) {
+              return {
+                commitsNumber: ${{max-commits}};
+              }
+            }
+        result-encoding: json
+    - name: Get result
+      run: echo "${{steps.set-result.outputs.commitsNumber}}"
+      shell: bash
+
+      # TODO: define limits for dates
+#    - run: generate-activity.sh -c ${{ inputs.commits }}
+#      shell: bash
+#    - run: git status
+#      shell: bash

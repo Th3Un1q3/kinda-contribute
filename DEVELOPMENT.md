@@ -14,5 +14,5 @@ https://github.com/actions/checkout
 * * Allow to define which kind of contribution it must be
 * Require personal token
 * Provide token instruction
-* Update documentation with clear purpose
+* Update documentation with clear purpose and put credits there
 * Publish
