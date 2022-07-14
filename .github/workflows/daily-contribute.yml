@@ -2,10 +2,13 @@ name: 'Test Contribution'
 on:
   workflow_dispatch:
     inputs:
-      commits:
+      max-commits:
         description: 'How many commits to make per run'
         required: false
         default: '5'
+      exact-commits:
+        description: 'How many commits to make per run'
+        required: false
 
 jobs:
   run:
@@ -18,4 +21,5 @@ jobs:
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
       - uses: 'Th3Un1q3/kinda-contribute@0.0.1.canary'
         with:
-          commits: ${{ inputs.commits }}
+          max-commits: ${{ inputs.max-commits }}
+          exact-commits: ${{ inputs.exact-commits }}
