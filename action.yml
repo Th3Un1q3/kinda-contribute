@@ -13,11 +13,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: |
-        echo ${{ toJson(github) }}
-        exit 0
-      shell: bash
-      name: 'Display GitHub context'
     - uses: actions/github-script@v6
       id: define-commits-to-make
       with:
