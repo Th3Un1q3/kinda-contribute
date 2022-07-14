@@ -18,15 +18,15 @@ runs:
       with:
         script: |
             try {
-              const exactCommits = Number.parseInt(github.context.event.inputs.exact-commits);
-              const maxCommits = Number.parseInt(github.context.event.inputs.max-commits);
+              const exactCommits = Number.parseInt("${{ inputs.exact-commits }}");
+              const maxCommits = Number.parseInt("${{ inputs.max-commits }}");
               const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
               return {
                 commitsNumber,
               }
             } catch(error) {
               return {
-                commitsNumber: github.context.event.inputs.max-commits
+                commitsNumber: "${{ inputs.max-commits }}",
               }
             }
         result-encoding: json
