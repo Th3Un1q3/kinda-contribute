@@ -9,8 +9,8 @@ on:
       exact-commits:
         description: 'Exact number of commits to make(overrides max-commits)'
         required: false
-      target-branch:
-        description: 'Target branch to push to'
+      target-branch-ref:
+        description: 'Target branch ref to push to(e.g. origin/main)'
         required: false
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          branch: "${{ inputs.target-branch }}"
+          ref: "${{ inputs.target-branch-ref }}"
           # It's required to use your personal access token
           # in order to make it look like it's your activity.
           # The token must be enabled for the private repo scopes.
