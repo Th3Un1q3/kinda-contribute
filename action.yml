@@ -30,9 +30,8 @@ runs:
                 commitsNumber: "${{ inputs.max-commits }}",
               }
             }
-        debug: true
     - name: Get result
-      run: echo "${{steps.define-commits-to-make.outputs.commitsNumber}}"
+      run: echo "${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}"
       shell: bash
 
       # TODO: define limits for dates
