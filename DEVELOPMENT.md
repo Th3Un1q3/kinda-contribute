@@ -10,9 +10,9 @@ https://github.com/actions/checkout
 
 ## Plan
 
-* Define custom action
+* ~~Define custom action~~
 * * Allow to define which kind of contribution it must be
-* Require personal token
-* Provide token instruction
-* Update documentation with clear purpose and put credits there
-* Publish
+* ~~Require personal token~~
+* ~~Provide token instruction~~
+* ~~Update documentation with clear purpose and put credits there~~
+* ~~Publish~~

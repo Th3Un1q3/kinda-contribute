@@ -1,14 +1,16 @@
-# Contribute. Kinda...
+# Contribute. 🧑‍💻 Kinda... 🤷‍
 
-Action that helps to appear actively contributing without doing anything.
+Action that helps to appear actively contributing without doing anything. 
 
 ![headline.png](headline.png)
 
 [![Test Contribution Manually](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/test-contribute.yml/badge.svg)](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/test-contribute.yml)
+[![Scheduled Contribution](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/scheduled-contribute.yml/badge.svg)](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/scheduled-contribute.yml)
 
 # Usage
 
 ```yaml
+name: Schedule contributions generation
 on:
   schedule:
     # Desired contribution schedule
@@ -53,3 +55,11 @@ jobs:
 ### Examples
 
 You can find more examples in `.github/workflows`.
+
+### Keep your contribution private but activity visible
+
+* Create any private repo you want.
+* Configure your profile to Include private contributions on [your profile](https://github.com/settings/profile)
+* * ![img.png](profile-config.png)
+* Make sure you have a personal access token enabled for the private repo scopes.
+* Apply your personal access token during [checkout](https://github.com/actions/checkout#usage) action.

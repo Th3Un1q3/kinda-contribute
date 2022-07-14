@@ -1,3 +1,4 @@
+name: Contribute by schedule
 on:
   schedule:
     # Desired contribution schedule
