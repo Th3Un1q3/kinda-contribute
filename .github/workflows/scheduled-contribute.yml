@@ -2,7 +2,7 @@ on:
   schedule:
     # Desired contribution schedule
     # [More about scheduled running](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule)
-    - cron: '0 0 * * 1-5'
+    - cron: '0 15 * * 1-5'
 
 jobs:
     run:
