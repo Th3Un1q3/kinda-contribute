@@ -1,0 +1,21 @@
+name: 'Test Contribution'
+on:
+  workflow_dispatch:
+    inputs:
+      commits:
+        description: 'How many commits to make per run'
+        required: false
+        default: '5'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # It's required to use your personal access token
+          # in order to make it look like it's your activity.
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - uses: 'Th3Un1q3/kinda-contribute@0.0.1.canary'
+        with:
+          commits: ${{ inputs.commits }}
