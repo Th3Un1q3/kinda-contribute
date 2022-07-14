@@ -20,7 +20,7 @@ runs:
             try {
               const exactCommits = Number.parseInt("${{ inputs.exact-commits }}");
               const maxCommits = Number.parseInt("${{ inputs.max-commits }}");
-              const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
+              const commitsNumber = exactCommits || Math.random() * (maxCommits - 1) + 1;
               console.log({commitsNumber});
               return {
                 commitsNumber,
