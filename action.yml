@@ -10,5 +10,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: echo You want to simulate ${{ inputs.commits }} commits.
+    - run: |
+        echo ${{ toJson(github) }}
+      shell: bash
+      name: 'Display GitHub context'
+      # TODO: define limits for dates
+    - run: generate-activity.sh
+      shell: bash
+    - run: git status
       shell: bash
