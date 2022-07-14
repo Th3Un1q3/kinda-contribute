@@ -31,7 +31,7 @@ runs:
               }
             } catch(error) {
               return {
-                commitsNumber: ${{max-commits}};
+                commitsNumber: github.context.event.inputs.max-commits;
               }
             }
         result-encoding: json
