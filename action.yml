@@ -55,5 +55,5 @@ runs:
       shell: bash
 
     - run: git push
-      if: "${{ inputs.include-push === 'true' }}"
+      if: "${{ inputs.include-push == 'true' }}"
       shell: bash
