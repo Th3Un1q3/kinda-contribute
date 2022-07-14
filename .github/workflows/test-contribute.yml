@@ -1,4 +1,4 @@
-name: 'Test Contribution'
+name: 'Test Contribution Manually'
 on:
   workflow_dispatch:
     inputs:
@@ -10,7 +10,7 @@ on:
         description: 'Exact number of commits to make(overrides max-commits)'
         required: false
       target-branch-ref:
-        description: 'Target branch ref to push to(e.g. origin/main)'
+        description: 'Target branch ref to push to(e.g. main, development)'
         required: false
 
 jobs:
@@ -30,4 +30,3 @@ jobs:
         with:
           max-commits: ${{ inputs.max-commits }}
           exact-commits: ${{ inputs.exact-commits }}
-          include-push: false

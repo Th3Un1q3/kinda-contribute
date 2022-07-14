@@ -25,7 +25,6 @@ runs:
               const exactCommits = Number.parseInt("${{ inputs.exact-commits }}");
               const maxCommits = Number.parseInt("${{ inputs.max-commits }}");
               const commitsNumber = exactCommits || Math.round(Math.random() * (maxCommits - 1) + 1);
-              console.log({commitsNumber});
               return {
                 commitsNumber,
               }
@@ -53,4 +52,5 @@ runs:
       shell: bash
 
     - run: git push
+      if: "${{ inputs.include-push === 'true }}"
       shell: bash
