@@ -9,6 +9,10 @@ inputs:
   exact-commits:
     description: 'How many commits to make per run'
     required: false
+  include-push:
+    description: 'Whether to push to the target branch'
+    required: false
+    default: 'true'
 
 runs:
   using: "composite"
@@ -34,8 +38,8 @@ runs:
       run: echo "${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}"
       shell: bash
 
-      # TODO: define limits for dates
-#    - run: generate-activity.sh -c ${{ inputs.commits }}
-#      shell: bash
-#    - run: git status
-#      shell: bash
+    - run: generate-activity.sh -c ${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}
+      shell: bash
+
+    - run: git push
+      shell: bash

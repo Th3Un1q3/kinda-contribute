@@ -3,11 +3,14 @@ on:
   workflow_dispatch:
     inputs:
       max-commits:
-        description: 'How many commits to make per run'
+        description: 'Maximum number of commits to make'
         required: false
         default: '5'
       exact-commits:
-        description: 'How many commits to make per run'
+        description: 'Exact number of commits to make(overrides max-commits)'
+        required: false
+      target-branch:
+        description: 'Target branch to push to'
         required: false
 
 jobs:
@@ -17,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          branch: "${{ inputs.target-branch }}"
           # It's required to use your personal access token
           # in order to make it look like it's your activity.
           # The token must be enabled for the private repo scopes.
@@ -26,3 +30,4 @@ jobs:
         with:
           max-commits: ${{ inputs.max-commits }}
           exact-commits: ${{ inputs.exact-commits }}
+          include-push: false
