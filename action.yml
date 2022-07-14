@@ -21,6 +21,7 @@ runs:
               const exactCommits = Number.parseInt("${{ inputs.exact-commits }}");
               const maxCommits = Number.parseInt("${{ inputs.max-commits }}");
               const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
+              console.log({commitsNumber});
               return {
                 commitsNumber,
               }
@@ -29,7 +30,7 @@ runs:
                 commitsNumber: "${{ inputs.max-commits }}",
               }
             }
-        result-encoding: json
+        debug: true
     - name: Get result
       run: echo "${{steps.define-commits-to-make.outputs.commitsNumber}}"
       shell: bash
