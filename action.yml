@@ -15,28 +15,29 @@ runs:
   steps:
     - run: |
         echo ${{ toJson(github) }}
+        exit 0
       shell: bash
       name: 'Display GitHub context'
-#    - uses: actions/github-script@v6
-#      id: define-commits-to-make
-#      with:
-#        script: |
-#            try {
-#              const exactCommits = Number.parseInt('${{ inputs.exact-commits }}');
-#              const maxCommits = Number.parseInt('${{ inputs.max-commits }}');
-#              const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
-#              return {
-#                commitsNumber,
-#              }
-#            } catch(error) {
-#              return {
-#                commitsNumber: ${{max-commits}};
-#              }
-#            }
-#        result-encoding: json
-#    - name: Get result
-#      run: echo "${{steps.define-commits-to-make.outputs.commitsNumber}}"
-#      shell: bash
+    - uses: actions/github-script@v6
+      id: define-commits-to-make
+      with:
+        script: |
+            try {
+              const exactCommits = Number.parseInt(github.context.event.inputs.exact-commits);
+              const maxCommits = Number.parseInt(github.context.event.inputs.max-commits);
+              const commitsNumber = exactCommits || Math.floor(Math.random() * (maxCommits - 1)) + 1;
+              return {
+                commitsNumber,
+              }
+            } catch(error) {
+              return {
+                commitsNumber: ${{max-commits}};
+              }
+            }
+        result-encoding: json
+    - name: Get result
+      run: echo "${{steps.define-commits-to-make.outputs.commitsNumber}}"
+      shell: bash
 
       # TODO: define limits for dates
 #    - run: generate-activity.sh -c ${{ inputs.commits }}
