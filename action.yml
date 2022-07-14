@@ -1,5 +1,8 @@
 name: 'Kinda Contribute'
-description: 'Simulates your contribution'
+description: 'Helps to appear actively contributing without doing anything.'
+branding:
+  icon: 'zap'
+  color: 'green'
 author: 'Th3Un1q3'
 inputs:
   max-commits:
