@@ -1,0 +1,14 @@
+name: 'Kinda Contribute'
+description: 'Simulates your contribution'
+author: 'Th3Un1q3'
+inputs:
+  commits:
+    description: 'How many commits to make per run'
+    required: false
+    default: '5'
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo You want to simulate ${{ inputs.commits }} commits.
+      shell: bash
