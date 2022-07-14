@@ -4,6 +4,8 @@ Action that helps to appear actively contributing without doing anything.
 
 ![headline.png](headline.png)
 
+[![Test Contribution Manually](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/test-contribute.yml/badge.svg)](https://github.com/Th3Un1q3/kinda-contribute/actions/workflows/test-contribute.yml)
+
 # Usage
 
 ```yaml
