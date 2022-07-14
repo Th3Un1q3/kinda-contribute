@@ -38,7 +38,16 @@ runs:
       run: echo "${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}"
       shell: bash
 
-    - run: generate-activity.sh -c ${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}
+    - run: |
+        touch changes.txt
+        commits=${{ fromJson(steps.define-commits-to-make.outputs.result).commitsNumber }}
+
+        for value in $(seq 1 $commits)
+        do
+          echo "Change at $value" >> changes.txt
+          git add changes.txt
+          git commit -m "Activity $(date) $value"
+        done
       shell: bash
 
     - run: git push
