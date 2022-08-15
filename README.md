@@ -25,6 +25,9 @@ jobs:
       - uses: actions/checkout@v3
         with:
           # Target Branch to commit to
+          # Only commits to the default branch are considered as contributions.
+          # OPTIONAL: for scheduled actions default branch is used,
+          # so do not specify it without need.
           ref: usage
           # It's required to use your personal access token
           # in order to make it look like it's your activity.
